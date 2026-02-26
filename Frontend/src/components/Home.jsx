@@ -44,9 +44,8 @@ function Home() {
       const response = await axios.post(
         "http://localhost:4001/todo/create",
         { text: newTodo, completed: false },
-        { withcredentials: true },
-      );
-      // console.log(response);
+        { withCredentials: true },
+      ); // console.log(response);
       setTodos([...todos, response.data.newTodo]);
       setNewTodo("");
     } catch (error) {
@@ -85,7 +84,9 @@ function Home() {
   };
   const logoutTodo = async () => {
     try {
-      await axios.get("http://localhost:4001/user/logout");
+      await axios.get("http://localhost:4001/user/logout", {
+        withCredentials: true,
+      });
       toast.success("successfully logged Out");
       navigateTo("/login");
       localStorage.removeItem("jwt");
