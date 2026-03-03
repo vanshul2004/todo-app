@@ -56,7 +56,7 @@ function Home() {
     }
   };
   const todoStatus = async (id) => {
-    const todo = todos.find((t) => t._id === id);
+    const todo = todos?.find((t) => t._id === id);
     try {
       const response = await axios.put(
         `https://todo-app-e8qq.onrender.com/todo/update/${id}`,
@@ -69,7 +69,7 @@ function Home() {
         },
       );
       console.log(response.data.todo);
-      setTodos(todos.map((t) => (t._id === id ? response.data.todo : t)));
+      setTodos(todos?.map((t) => (t._id === id ? response.data.todo : t)));
     } catch (error) {
       setError("failed to find Todo status");
     }
@@ -100,7 +100,7 @@ function Home() {
       toast.error("error in logout");
     }
   };
-  const reamainingTodos = todos.filter((todo) => !todo.completed).length;
+  const reamainingTodos = todos?.filter((todo) => !todo.completed).length || 0;
 
   return (
     <div className="bg-gray-100 mt-8 max-w-lg lg:max-w-xl rounded-lg shadow-lg mx-8 sm:mx-auto  p-6">
