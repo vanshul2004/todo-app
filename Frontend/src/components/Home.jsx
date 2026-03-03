@@ -15,10 +15,13 @@ function Home() {
       try {
         setLoading(true);
 
-        const response = await axios.get("http://localhost:4001/todo/fetch", {
-          withCredentials: true,
-          headers: { "content-type": "application/json" },
-        });
+        const response = await axios.get(
+          "https://todo-app-e8qq.onrender.com/todo/fetch",
+          {
+            withCredentials: true,
+            headers: { "content-type": "application/json" },
+          },
+        );
 
         console.log("API todos:", response.data.todos);
 
