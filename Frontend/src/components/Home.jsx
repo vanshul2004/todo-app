@@ -45,7 +45,7 @@ function Home() {
 
     try {
       const response = await axios.post(
-        "http://localhost:4001/todo/create",
+        "https://todo-app-e8qq.onrender.com/todo/create",
         { text: newTodo, completed: false },
         { withCredentials: true },
       ); // console.log(response);
@@ -59,7 +59,7 @@ function Home() {
     const todo = todos.find((t) => t._id === id);
     try {
       const response = await axios.put(
-        `http://localhost:4001/todo/update/${id}`,
+        `https://todo-app-e8qq.onrender.com/todo/update/${id}`,
         {
           ...todo,
           completed: !todo.completed,
@@ -77,9 +77,12 @@ function Home() {
 
   const todoDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4001/todo/delete/${id}`, {
-        withCredentials: true,
-      });
+      await axios.delete(
+        `https://todo-app-e8qq.onrender.com/todo/delete/${id}`,
+        {
+          withCredentials: true,
+        },
+      );
       setTodos(todos.filter((t) => t._id !== id));
     } catch (error) {
       setError("failed to Delete Todo");
@@ -87,7 +90,7 @@ function Home() {
   };
   const logoutTodo = async () => {
     try {
-      await axios.get("http://localhost:4001/user/logout", {
+      await axios.get("https://todo-app-e8qq.onrender.com/user/logout", {
         withCredentials: true,
       });
       toast.success("successfully logged Out");
