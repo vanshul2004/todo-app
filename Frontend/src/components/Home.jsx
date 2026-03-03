@@ -23,9 +23,9 @@ function Home() {
           },
         );
 
-        console.log("API todos:", response.data.todos);
+        console.log("API todos:", response.data);
 
-        setTodos(response.data.todos);
+        setTodos(response.data);
         setError(null);
       } catch (error) {
         setError("failed to fetch todos");
