@@ -83,7 +83,7 @@ function Home() {
           withCredentials: true,
         },
       );
-      setTodos(todos.filter((t) => t._id !== id));
+      setTodos(todos?.filter((t) => t._id !== id));
     } catch (error) {
       setError("failed to Delete Todo");
     }
