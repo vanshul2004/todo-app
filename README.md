@@ -66,7 +66,7 @@ npm start
 
 Frontend will run on:
 
-http://localhost:3000
+http://localhost:5173
 
 Backend will run on:
 
